@@ -14,4 +14,5 @@ RUN wget -O /tmp/current.txt https://jeremylong.github.io/DependencyCheck/curren
 VOLUME "/src"
 VOLUME "/reports"
 
+RUN pwd
 ENTRYPOINT ["/dependency-check/bin/dependency-check.sh"]
