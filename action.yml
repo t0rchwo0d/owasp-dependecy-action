@@ -1,0 +1,31 @@
+name: 'OWASP Dependency Checker Actions'
+description: 'https://owasp.org/www-project-dependency-check/'
+inputs:
+    Project-Name:
+        required: true
+    Source-Location:
+        required: false
+        default: '/github/workspace'    
+    Report-Format:
+        required: false
+        default: 'ALL'
+    Report-Location:
+        required: false
+        default: '/github/workspace/reports'
+    Log-Name:
+        required: false
+        default: log.txt
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - '--scan'
+        - '${{ inputs.Source-Location }}'
+        - '--format' 
+        - '${{ inputs.Report-Format }}'
+        - '--project'
+        - '${{ inputs.Project-Name }}'
+        - '--out'
+        - '${{ inputs.Report-Location }}'
+        - '--log'
+        - '${{ inputs.Report-Location }}/${{ inputs.Log-Name }}'
