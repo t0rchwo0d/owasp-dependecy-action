@@ -11,7 +11,7 @@ inputs:
         default: 'ALL'
     Report-Location:
         required: false
-        default: '/github/workspace/reports'
+        default: '/reports'
     Log-Name:
         required: false
         default: log.txt
